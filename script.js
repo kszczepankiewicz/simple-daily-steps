@@ -1,6 +1,5 @@
 const day = document.getElementById('day');
 const steps = document.getElementById('steps');
-const button = document.querySelector('button');
 const tbody = document.querySelector('tbody');
 const form = document.querySelector('form');
 const p = document.querySelector('p');
