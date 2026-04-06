@@ -1,0 +1,14 @@
+body {
+    color: #fff;
+    background: #000;
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+td,
+th {
+    border: 1px solid #fff;
+}
