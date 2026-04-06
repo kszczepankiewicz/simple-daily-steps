@@ -28,7 +28,7 @@ form.addEventListener('submit', (e) => {
         p.textContent = 'Day or steps cannot be empty'
         return;
     }
-    if (stepsArr.find(r => Number(r.day) === Number(day.value))) {
+    if (stepsArr.find(r => r.day === Number(day.value))) {
         p.textContent = 'Day cannot be duplicated';
         return;
     }
