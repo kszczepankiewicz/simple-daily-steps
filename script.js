@@ -26,7 +26,6 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     stepsArr.push({ day: day.value, steps: steps.value })
     localStorage.setItem('steps', JSON.stringify(stepsArr))
-    tbody.innerHTML = '';
-    generateTable();
+    generateRow(day.value, steps.value);
 })
 
