@@ -2,6 +2,8 @@ const day = document.getElementById('day');
 const steps = document.getElementById('steps');
 const button = document.querySelector('button');
 const tbody = document.querySelector('tbody');
+const form = document.querySelector('form');
+
 const stepsArr = JSON.parse(localStorage.getItem('steps')) || [];
 
 const generateTable = () => {
@@ -20,11 +22,11 @@ const generateTable = () => {
 
 generateTable();
 
-button.addEventListener('click', (e) => {
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
     stepsArr.push({ day: day.value, steps: steps.value })
-    console.log(stepsArr);
     localStorage.setItem('steps', JSON.stringify(stepsArr))
-    tbody.innerHTML = ``;
+    tbody.innerHTML = '';
     generateTable();
 })
 
