@@ -25,12 +25,12 @@ generateTable();
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    if (stepsArr.find(r => r.day === day.value)) {
+    if (stepsArr.find(r => Number(r.day) === Number(day.value))) {
         p.textContent = 'Day cannot be duplicated';
         return;
     }
     p.textContent = '';
-    stepsArr.push({ day: day.value, steps: steps.value })
+    stepsArr.push({ day: Number(day.value), steps: Number(steps.value) })
     localStorage.setItem('steps', JSON.stringify(stepsArr))
     generateRow(day.value, steps.value);
 })
