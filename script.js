@@ -24,6 +24,10 @@ generateTable();
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
+    if (!day.value || !steps.value) {
+        p.textContent = 'Day or steps cannot be empty'
+        return;
+    }
     if (stepsArr.find(r => Number(r.day) === Number(day.value))) {
         p.textContent = 'Day cannot be duplicated';
         return;
