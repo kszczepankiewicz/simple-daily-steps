@@ -6,16 +6,18 @@ const form = document.querySelector('form');
 
 const stepsArr = JSON.parse(localStorage.getItem('steps')) || [];
 
+const generateRow = (day, steps) => {
+    const row = document.createElement('tr');
+    const dayCell = document.createElement('td');
+    dayCell.textContent = day;
+    const stepsCell = document.createElement('td');
+    stepsCell.textContent = steps;
+    row.append(dayCell, stepsCell);
+    tbody.appendChild(row);
+}
+
 const generateTable = () => {
-    stepsArr.forEach(r => {
-        const row = document.createElement('tr');
-        const dayCell = document.createElement('td');
-        dayCell.textContent = r.day;
-        const stepsCell = document.createElement('td');
-        stepsCell.textContent = r.steps;
-        row.append(dayCell, stepsCell);
-        tbody.appendChild(row);
-    });
+    stepsArr.forEach(r => generateRow(r.day, r.steps));
 }
 
 generateTable();
