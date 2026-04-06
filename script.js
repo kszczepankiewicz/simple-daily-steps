@@ -11,13 +11,11 @@ const generateTable = () => {
         const row = document.createElement('tr');
         const dayCell = document.createElement('td');
         dayCell.textContent = r.day;
-        row.appendChild(dayCell);
         const stepsCell = document.createElement('td');
         stepsCell.textContent = r.steps;
-        row.appendChild(stepsCell);
+        row.append(dayCell, stepsCell);
         tbody.appendChild(row);
     });
-
 }
 
 generateTable();
