@@ -3,6 +3,7 @@ const steps = document.getElementById('steps');
 const button = document.querySelector('button');
 const tbody = document.querySelector('tbody');
 const form = document.querySelector('form');
+const p = document.querySelector('p');
 
 const stepsArr = JSON.parse(localStorage.getItem('steps')) || [];
 
@@ -24,6 +25,11 @@ generateTable();
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
+    if (stepsArr.find(r => r.day === day.value)) {
+        p.textContent = 'Day cannot be duplicated';
+        return;
+    }
+    p.textContent = '';
     stepsArr.push({ day: day.value, steps: steps.value })
     localStorage.setItem('steps', JSON.stringify(stepsArr))
     generateRow(day.value, steps.value);
